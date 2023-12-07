@@ -1,0 +1,243 @@
+https://developer.mozilla.org/ko/  html 공부를 더 하고 싶으면 참고한다. (단, 쓰레기통 모양은 안봐도 된다.)
+
+p  
+ - p (Paragraph) 태그는 문단을 포함하기 위해 사용하는 태그이다.
+ - 자동으로 닫는 태그 :  X
+ - 시멘틱 : O
+
+button, form, input, ,label, option, select, textarea
+
+button 
+
+
+form
+ - form(양식) 태그는 서버로 전송하고자 하는 사용자 입력값을 받는 태그들을 자식(input, select, textarea 등) 
+    혹은 자손으로 가지는 태그이다.
+ - 자동으로 닫는 태그 :  X
+ - 시멘틱 : O
+ - 하나의 양식 태그는 서로 관련있는 입력 태그만 가져야한다.
+ - 양식 태그들 끼리는 선조, 부모, 자식, 자손관계를 형성하여서는 안 된다.
+
+
+input
+ - input 태그는 사용자로 부터 입력값을 받기 위해 사용하는 태그이다.
+ - 자동으로 닫는 태그 :  O
+ - 시멘틱 : O
+ - 속성  
+            - name :  [필수] 가지고 있는 값을 서버로 전송할때 사용할 식별자 특별한 경우가 아니하면 해당 양식 내에서 고유해야한다.
+	- type :  [필수] 
+		* O 표시는 중요하고 많이 쓰이는 것이다.
+		- text : [기본값] 일반 문자열. O
+		- button : 요청을 보내지 않는 일반 버튼. O
+		- checkbox : 여부(참, 거짓)선택을 위한 체크 박스.  O
+		- color : 색상 선택. 데이터 전송시 HEX 컬러 문자열로 전송된다.
+		- date : 날짜 선택. 모바일 기기에서는 년/ 월/ 일 선택 키패드를 표시 해 주기도 한다
+		- datetime - local : 날짜 및 시간 선택. 모바일 기기에서는 맞춤형 키패드를 표시해 주기도 한다.
+		- email : 이메일 문자열. 모바일 기기에서는 앳( @ ), 마침표( . ), 도메일 TLD( .com)를 표시 해주기도 한다. O
+		- file : 파일 선택. O
+			- 파일을 전송하기 위해서는 <form>태그 의 enctype 속성 값이  multipart/ form-data 이고 method 속성 값이 post여야한다.
+		- hidden : 숨겨진 상태. 의도적으로 보이지 않게 하기 위해 사용한다.값의 형태는 문자열(text)이고 보통 보안을 위한 토큰(salt) 값을 저장하기 위해 사용한다. O
+		- number : 숫자 입력. 자연상수( e ) 및 소수점( . )등을 허용함으로 유의 해야한다.
+		- password : 비밀번호 입력. 입력한 값이 애스터리스크( * )로 대치되어 표시된다. O
+		- range : 숫자를 선택할 수 있는 막대.
+		- reset : 양식 태그내에 존재하는 입력 태그의 값을 초기화 하는 버튼.
+		- search : 검색을 위한 입력. 검색창의 의미를 부여하는 시멘틱이 있을 뿐, 외관 및 기능상 text 와 차이가 없다.
+			 (브라우저 별로 돋보기 아이콘을 추가하는 경우가 있음.)
+		- tel : 연락처 입력. 모바일 기기에서 숫자와 별표( * ), 샾버튼( # )을 표시해 주기도 한다.
+		- url : URL을 위한 텍스트 입력. URL을 입력하기 위한 시멘틱이 있을뿐, 외관 및 기능상 text 와 차이가 없다.
+		- radio : 여러 선택지 중 하나를 선택하기 위한 라디오 박스. name 속성 값이 같은 radio 중 하나 밖에 선택할 수 없다.
+		- submit : 해당 양식을 제출하기 위한 버튼. O
+		- autofocus : 페이지가 로드되었을때 자동으로 포커스를 가질 것인가에 대한 속성이다.  속성값을 가지지 않으며 부여된 것으로 그 의미를 가진다. O
+		- disabled : 해당 입력 태그를 비활성화 한다. 속성값을 가지지 않으며 부여된 것으로 그 의미를 가진다. O
+		- max : type 속성값이 number, range 등 일때 최댓값.
+		- min : type 속성값이 number, range 등 일때 최솟값.
+		- step : type 속성값이 range 일때 한 틱(Tick)에 변화할 단계값.
+		- maxlength : 문자열의 최대 길이 O
+		- minlength : 문자열의 최소 길이 O
+		- mutiple : type 속성값이 file 일때 여러 개의 파일을 선택할 수 있게 한다. 속성값을 가지지 않으며 부여된것으로 
+			  그 의미 를 가진다.
+		- placeholder : 값이 비어있을 때 대신하여 보여줄 텍스트. O
+		- readonly : 읽기 전용 설정. 속성값을 가지지 않으며 부여된 것으로 그 의미를 가진다. O
+		- required : 값이 비어있을 수 없음에 대한 설정. 속성값을 가지지 않으며 부여된 것으로 그 의미를 가진다. O
+		- checked : type 속성값이 checkbox 혹은 radio일때 기본적으로 체크된 상태로 설정한다. 속성값을 가지지 않으며 부여된것으로 
+			   그 의미 를 가진다. O 
+		- spellcheck : 브라우저에 내장되어있는 철자 확인 기능을 사용할 것인가에 대한 설정.
+		     - default : [기본값]브라우저 설정을 따른다
+		     - true : 강제 사용
+		     - false : 강제 미사용
+		- value : 해당 입력 태그의 값. 단, 버튼 형식( button, reset, submit 등) 일 때는 표시할 텍스트로 작동 O
+		- accept : type이 file일때 허용할 확장자 혹은 MIME 타입을 지정한다.
+		 - 확장자는 마침표( . )를 적고 확장자를 적는 형식으로 작성한다.
+		 - MIME의 후행 타입은  애스터리스크( * ) 를 활용할 수 있다
+		 - 콤마( , )를 구분하여 여러개의 타입을 나열할 수 있다.
+		- autocomplete : (어떠한 형태의)자동완성 기능을 사용할 것인가에 대한 설정.
+		 - on : 일반 자동 완성 기능 사용.해당 입력 태그에 입력 했던적이 있던 내용을 기반으로 한다.
+		 - off : 자동완성기능 사용하지않음.
+		 - name : 이름 자동 완성
+		 - email : 이메일 자동 완성
+		 - new - password : 새로운 비밀번호 자동완성(생성)
+		 - one - time - code : 일회용 비밀번호(OTP, One - Time - Code) 자동완성
+ - <form> 태그의 자식 혹은 자손이어야 의미를 가진다.
+
+
+* window + v : 복사 한거 클립보드에 기록이 하나 더 보임
+  CTRL  + SHIFT +  Z  : 두 번 되돌리기
+
+
+
+label
+ - label 태그는 입력 태그와 관련하여 이에 관한 설명을 작성하고 연결시키기 위해 사용한다.
+ - 자동으로 닫는 태그 : X
+ - 시멘틱 : O
+ - label 태그는 연결된 입력 태그에 대한 설명을 문자열로 가지며 스크린리더가 연결된 태그에 대한 설명으로 label 내부의 내용을
+   사용함으로 반드시 작성해야하며 누락시 HTML5 표준 위반이다.
+ - 작성 방법은 아래와 같이 두 가지가 있다.
+  - label 태그의 for 속성 값을 입력 태그가 가지는 id 속성값과 일치시키는 방법.
+
+	<label for = "emailInput"> 이메일</label>
+	<input id = "emailInput" name = "email" placeholder = "이메일을 입력해주세요." type = "email">
+
+      - id 속성이 가지는 속성값은 하나의 HTML 문서내에서 중복되어서는 안됨으로 각별히 유의해야한다.
+
+  - label 태그가 직접 입력 태그를 자식 혹은 자손 을 가지게 하는 방법.
+
+	<label>
+		<span>이메일</span>
+		<input id = "emailInput" name = "email" placeholder = "이메일을 입력해주세요." type = "email">
+	</label>
+
+
+
+option
+
+
+
+select
+
+
+
+textarea
+
+
+
+
+
+예제 2
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실습 2 태그입니다.</title>
+</head>
+<body>
+    <label>
+        <span>이메일</span>
+        <input type="email" size="50" minlength="5" maxlength="50" placeholder ="이메일은 5자 이상 50자 이하로 입력해 주세요.">
+        <span>이메일은 5자 이상 50자 이하로 입력해 주세요.</span>
+        <br><br>
+
+        <span>비밀번호</span>
+        <input id = "비밀번호" type="password" size="50"  minlength="5" maxlength="50" placeholder ="비밀번호는 5자 이상 50자 이하로 입력해 주세요.">
+        <span>비밀번호는 5자 이상 50자 이하로 입력해 주세요.</span>
+       
+        <br><br>
+        <span>닉네임</span>
+        <input name = "닉네임" minlength="2" maxlength="10" placeholder ="닉네임은 2자 이상 10자 이하로 입력해 주세요.">
+        <span>닉네임은 2자 이상 10자 이하로 입력해 주세요.</span>
+        
+
+        <br><br>
+        <span>통신사</span>
+        <input name = "telecom" type ="radio" value = "SKT">SKT
+        <input name = "telecom" type ="radio" value = "KT">KT
+        <input name = "telecom" type ="radio" value = "LGU+">LGU+
+
+        <br><br>
+        <span>이름</span>
+        <input name = "이름" placeholder = "실명을 입력해주세요.">
+        <br><br>
+
+        <span>생년월일</span>
+        <input type="date">
+        <br><br>
+
+        <span>연락처</span>
+        <input type= "tel" value = "010" > - <input type= "tel" > - <input type= "tel" >
+        <input type = "submit"  value= "인증번호 전송" >
+        
+        <br><br>
+        <input type = "readonly">
+        <input type = "submit" value = "인증번호 확인" disabled>
+        <span>연락처를 입력한 후 [인증번호 전송]버튼을 클릭해주세요.</span>
+
+
+        <br><br>
+        <span>주소</span>
+        <br>
+        <input type = "text" placeholder = "우편번호" >
+        <input type = "submit" value = "주소찾기">
+        <span>우편번호와 기본 주소는 [주소찾기]버튼을 클릭하여 완성해주세요.</span>
+
+        <br>
+
+        <input type = "text" placeholder = "기본 주소" >
+        <br>
+        <input type = "text" placeholder = "상세 주소(건물명, 동, 호)" >
+        <br>
+
+        <input type = "submit" value = "다시 작성하기">
+        <input type = "submit" value = "회원가입">
+
+
+
+
+
+
+    </label>
+    
+</body>
+</html>
+
+예제 2-1
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실습2 -1 태그 입니다.</title>
+</head>
+<body>
+    <h1>로그인</h1>
+<form>
+    <label>
+        <span>이메일</span>
+        <input type="email"  placeholder ="이메일을 입력해 주세요.">
+        <br><br>
+
+        <span>비밀번호</span>
+        <input id = "비밀번호"  placeholder ="비밀번호를 입력해 주세요.">
+        <br><br>
+
+        <input type="checkbox"  > 다음부터 이메일을 기억합니다.
+        <br>
+
+
+            
+                <ul>
+                <br><li>아직 계정이 없으신가요? 
+                    <a href ="#"  target = "_blank"> 회원가입하러가기</a>
+                    </li>
+
+                <br><li>이메일을 잊으셨나요? 
+                    <a href ="#"  target = "_blank"> 이메일 찾기</a>
+                    </li>
+
+                <br><li>비밀번호를 잊으셨나요? 
+                    <a href ="#"  target = "_blank"> 비밀번호 재설정하기</a>
+                    </li>
+                </ul>
+        
+    </label>
+</form>
+</body>
+</html>
+
